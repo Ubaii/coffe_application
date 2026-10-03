@@ -27,12 +27,12 @@
             <a href="{{ route('menus.index') }}" @class(['nav-link', 'active' => request()->routeIs('menus.*')])>
                 <x-icon name="coffee" /> <span>Menu</span>
             </a>
-            <a href="{{ route('tables.index') }}" @class(['nav-link', 'active' => request()->routeIs('tables.index')])>
+            <!-- <a href="{{ route('tables.index') }}" @class(['nav-link', 'active' => request()->routeIs('tables.index')])>
                 <x-icon name="table" /> <span>Meja</span>
             </a>
             <a href="{{ route('tables.status') }}" @class(['nav-link', 'active' => request()->routeIs('tables.status')])>
                 <x-icon name="eye" /> <span>Status Meja</span>
-            </a>
+            </a> -->
             <a href="{{ route('users.index') }}" @class(['nav-link', 'active' => request()->routeIs('users.*')])>
                 <x-icon name="category" /> <span>Akun Pegawai</span>
             </a>
