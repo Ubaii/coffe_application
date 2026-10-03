@@ -498,3 +498,90 @@ button { cursor: pointer; }
 @media (prefers-reduced-motion: reduce) {
     .login-visual > img, .login-page.has-scroll-effects .login-card { transition: none; }
 }
+
+/* Modal hapus produk */
+
+
+.delete-modal-content {
+    text-align: center;
+    padding: 10px 0;
+}
+
+.delete-modal-icon {
+    width: 52px;
+    height: 52px;
+    margin: 0 auto 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    background: #fee2e2;
+    color: #dc2626;
+}
+
+.delete-modal-content p {
+    margin: 0 0 8px;
+    font-size: 13px;
+    font-weight: 700;
+}
+
+.delete-modal-content p {
+    margin: 0 auto 24px;
+    max-width: 420px;
+    color: #6b7280;
+    font-size: 14px;
+    line-height: 1.6;
+}
+
+.btn-danger {
+    border: none;
+    background: #dc2626;
+    color: white;
+}
+
+.btn-danger:hover {
+    background: #b91c1c;
+}
+
+/* ////modal Hapus kategori */
+
+.delete-modal-content {
+    text-align: center;
+    padding: 10px 0;
+}
+
+.delete-modal-icon {
+    width: 52px;
+    height: 52px;
+    margin: 0 auto 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    background: #fee2e2;
+    color: #dc2626;
+}
+
+.delete-modal-content h3 {
+    margin: 0 0 8px;
+    font-size: 18px;
+    font-weight: 700;
+}
+
+.delete-modal-content p {
+    margin: 0 auto 24px;
+    max-width: 420px;
+    color: #6b7280;
+    font-size: 14px;
+    line-height: 1.6;
+}
+
+.btn-danger {
+    border: none;
+    background: #dc2626;
+    color: white;
+}
+
+.btn-danger:hover {
+    background: #b91c1c;
+}
