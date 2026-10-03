@@ -15,6 +15,6 @@
             <x-icon name="bell" />
             <span class="notification-dot"></span>
         </button>
-        <span class="topbar-user"><span class="topbar-user-name">{{ auth()->user()->name }}</span> <span class="avatar avatar-small">{{ mb_strtoupper(mb_substr(auth()->user()->name, 0, 1)) }}</span></span>
+        <!-- <span class="topbar-user"><span class="topbar-user-name">{{ auth()->user()->name }}</span> <span class="avatar avatar-small">{{ mb_strtoupper(mb_substr(auth()->user()->name, 0, 1)) }}</span></span> -->
     </div>
 </header>
