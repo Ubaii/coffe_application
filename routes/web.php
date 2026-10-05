@@ -54,14 +54,14 @@ Route::middleware('auth')->group(function () {
         Route::patch('/menus/{menu}/status', [MenuController::class, 'toggleStatus'])->name('menus.status');
         Route::delete('/menus/{menu}', [MenuController::class, 'destroy'])->name('menus.destroy');
 
-        // Route::get('/tables', [CafeTableController::class, 'index'])->name('tables.index');
-        // Route::post('/tables', [CafeTableController::class, 'store'])->name('tables.store');
-        // Route::get('/tables/{table}/edit', [CafeTableController::class, 'edit'])->name('tables.edit');
-        // Route::put('/tables/{table}', [CafeTableController::class, 'update'])->name('tables.update');
-        // Route::patch('/tables/{table}/active', [CafeTableController::class, 'toggleActive'])->name('tables.active.toggle');
-        // Route::patch('/tables/{table}/status', [TransactionController::class, 'updateTableStatus'])->name('tables.status.update');
-        // Route::delete('/tables/{table}', [CafeTableController::class, 'destroy'])->name('tables.destroy');
-        // Route::get('/table-status', [CafeTableController::class, 'status'])->name('tables.status');
+        Route::get('/tables', [CafeTableController::class, 'index'])->name('tables.index');
+        Route::post('/tables', [CafeTableController::class, 'store'])->name('tables.store');
+        Route::get('/tables/{table}/edit', [CafeTableController::class, 'edit'])->name('tables.edit');
+        Route::put('/tables/{table}', [CafeTableController::class, 'update'])->name('tables.update');
+        Route::patch('/tables/{table}/active', [CafeTableController::class, 'toggleActive'])->name('tables.active.toggle');
+        Route::patch('/tables/{table}/status', [TransactionController::class, 'updateTableStatus'])->name('tables.status.update');
+        Route::delete('/tables/{table}', [CafeTableController::class, 'destroy'])->name('tables.destroy');
+        Route::get('/table-status', [CafeTableController::class, 'status'])->name('tables.status');
 
         Route::get('/transactions', [TransactionController::class, 'index'])->name('transactions.index');
         Route::get('/receipt', function () {
@@ -73,5 +73,6 @@ Route::middleware('auth')->group(function () {
         })->name('receipt.latest');
 
         Route::get('/reports', ReportController::class)->name('reports.index');
+	        Route::get('/reports/pdf', [ReportController::class, 'exportPdf'])->name('reports.pdf');
     });
 });

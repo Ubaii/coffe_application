@@ -3,36 +3,34 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="theme-color" content="#147d72">
-    <title>Buat akun administrator — KOPI SENJA</title>
+    <meta name="theme-color" content="#2563eb">
+    <title>Buat akun administrator — MIE AYAM WENGI'57</title>
     @vite(['resources/css/app.css', 'resources/js/app.js'])
 </head>
 <body>
     <main class="login-page registration-page">
         <section class="login-layout">
-            <aside class="login-visual">
-                <img src="https://images.unsplash.com/photo-1442512595331-e89e73853f31?auto=format&amp;fit=crop&amp;w=1400&amp;q=85" alt="Suasana hangat di kedai kopi" fetchpriority="high">
-                <div class="login-visual-shade"></div>
+            <aside class="login-visual login-gradient">
+                <div class="login-pattern"></div>
                 <div class="login-visual-content">
-                    <a class="login-visual-brand" href="{{ route('login') }}"><span class="brand-mark">K</span><span>KOPI SENJA</span></a>
+                    <a class="login-visual-brand" href="{{ route('login') }}"><span class="brand-mark">M</span><span>MIE AYAM WENGI'57</span></a>
                     <div class="login-quote">
-                        <span class="login-eyebrow">SELAMAT DATANG DI KOPI SENJA</span>
-                        <h2>Mulai kelola kedai dengan lebih mudah.</h2>
-                        <p>Buat akun administrator pertama untuk mengatur menu, meja, dan transaksi kedai Anda.</p>
+                        <span class="login-eyebrow">SELAMAT DATANG DI MIE AYAM WENGI'57</span>
+                        <h2>Mulai kelola Warung Makan dengan lebih mudah.</h2>
+                        <p>Buat akun administrator pertama untuk mengatur menu, meja, dan transaksi restoran Anda.</p>
                     </div>
-                    <span class="login-photo-caption">Satu akun untuk memulai cerita KOPI SENJA.</span>
+                    <span class="login-photo-caption">Satu akun untuk memulai cerita MIE AYAM WENGI'57.</span>
                 </div>
             </aside>
             <div class="login-form-side">
                 <x-back-button class="auth-back" :fallback="route('login')" />
                 <section class="login-card">
                     <div class="login-brand">
-                        <span class="brand-mark">K</span>
-                        <span class="brand-name">KOPI SENJA</span>
-                        <span class="brand-subtitle">Coffee Shop Management System</span>
+                        <span class="brand-name">MIE AYAM WENGI'57</span>
+                        <span class="brand-subtitle">Warung Makan Management System</span>
                     </div>
                     <h1>Buat akun administrator</h1>
-                    <p class="login-intro">Buat akun pertama untuk mulai mengelola KOPI SENJA. Pendaftaran akan ditutup setelah akun dibuat.</p>
+                    <p class="login-intro">Buat akun pertama untuk mulai mengelola MIE AYAM WENGI'57. Pendaftaran akan ditutup setelah akun dibuat.</p>
                     @if($errors->any())<p class="form-alert error">{{ $errors->first() }}</p>@endif
                     <form class="login-form" action="{{ route('register.store') }}" method="post">
                         @csrf

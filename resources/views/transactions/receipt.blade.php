@@ -7,7 +7,7 @@
         <div class="page-heading"><div><h1>Detail Transaksi</h1><p>Periksa detail pesanan atau cetak struk pelanggan.</p></div><a href="{{ route(auth()->user()->isAdmin() ? 'transactions.index' : 'cashier') }}" class="btn btn-outline">{{ auth()->user()->isAdmin() ? 'Kembali ke transaksi' : 'Kembali ke kasir' }}</a></div>
         <div class="receipt-wrap">
             <article class="receipt-paper">
-                <header class="receipt-brand"><span class="brand-mark">K</span><h2>KOPI SENJA</h2><p>Coffee Shop Management System</p></header>
+                <header class="receipt-brand"><span class="brand-mark">M</span><h2>MIE AYAM WENGI'57</h2><p>Restaurant Management System</p></header>
                 <div class="receipt-meta">
                     <span>No. Invoice</span><strong>{{ $transaction->invoice }}</strong>
                     <span>Tanggal</span><strong>{{ $transaction->paid_at->translatedFormat('d F Y, H:i') }}</strong>
@@ -27,7 +27,7 @@
                     <div class="receipt-total-row"><span>Kembalian</span><span>Rp {{ number_format($transaction->change_amount, 0, ',', '.') }}</span></div>
                 </div>
                 @if($transaction->note)<p class="receipt-note"><strong>Catatan transaksi:</strong> {{ $transaction->note }}</p>@endif
-                <footer class="receipt-thanks">Terima kasih telah berkunjung ke KOPI SENJA.<br>Semoga hari Anda sehangat kopi kami.</footer>
+                <footer class="receipt-thanks">Terima kasih telah berkunjung ke MIE AYAM WENGI'57.<br>Semoga hari Anda sehangat mie kami.</footer>
             </article>
         </div>
         <div class="print-actions"><button type="button" class="btn btn-primary" onclick="window.print()"><x-icon name="receipt" /> Cetak struk</button><a href="{{ route('cashier') }}" class="btn btn-outline">Transaksi baru</a></div>

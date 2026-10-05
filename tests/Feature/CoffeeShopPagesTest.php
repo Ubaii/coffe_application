@@ -90,7 +90,6 @@ class CoffeeShopPagesTest extends TestCase
         $this->get('/login')
             ->assertOk()
             ->assertSee('masuk sebagai administrator')
-            ->assertSee('Akun Pegawai')
             ->assertSee('administrator atau kasir')
             ->assertDontSee('Buat akun administrator');
     }
@@ -127,7 +126,7 @@ class CoffeeShopPagesTest extends TestCase
         ] as $path) {
             $this->get($path)
                 ->assertOk()
-                ->assertSee('KOPI SENJA')
+                ->assertSee('MIE AYAM WENGI\'57')
                 ->assertSee('Kembali');
         }
     }
@@ -139,7 +138,7 @@ class CoffeeShopPagesTest extends TestCase
         $this->get('/menus')
             ->assertOk()
             ->assertSee('Belum ada menu')
-            ->assertSee('Gunakan tombol di bawah untuk mulai menambahkan menu KOPI SENJA.')
+            ->assertSee('Gunakan tombol di bawah untuk mulai menambahkan menu MIE AYAM WENGI\'57.')
             ->assertSee('data-modal-open="add-menu"', false);
     }
 

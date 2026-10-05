@@ -70,6 +70,9 @@
         @case('clock')
             <circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/>
             @break
+        @case('download')
+            <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4M7 10l5 5 5-5M12 15V3"/>
+            @break
         @case('close')
             <path d="m6 6 12 12M18 6 6 18"/>
             @break

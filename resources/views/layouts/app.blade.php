@@ -3,8 +3,8 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="theme-color" content="#147d72">
-    <title>@yield('title', 'Dashboard') — KOPI SENJA</title>
+    <meta name="theme-color" content="#2563eb">
+    <title>@yield('title', 'Dashboard') — MIE AYAM WENGI'57</title>
     @vite(['resources/css/app.css', 'resources/js/app.js'])
 </head>
 <body class="app-body">

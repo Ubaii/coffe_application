@@ -3,22 +3,21 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="theme-color" content="#147d72">
-    <title>Password baru — KOPI SENJA</title>
+    <meta name="theme-color" content="#2563eb">
+    <title>Password baru — MIE AYAM WENGI'57</title>
     @vite(['resources/css/app.css', 'resources/js/app.js'])
 </head>
 <body>
     <main class="login-page">
         <section class="login-layout">
-            <aside class="login-visual">
-                <img src="https://images.unsplash.com/photo-1442512595331-e89e73853f31?auto=format&amp;fit=crop&amp;w=1400&amp;q=85" alt="Suasana hangat di kedai kopi" fetchpriority="high">
-                <div class="login-visual-shade"></div>
+            <aside class="login-visual login-gradient">
+                <div class="login-pattern"></div>
                 <div class="login-visual-content">
-                    <a class="login-visual-brand" href="{{ route('login') }}"><span class="brand-mark">K</span><span>KOPI SENJA</span></a>
+                    <a class="login-visual-brand" href="{{ route('login') }}"><span class="brand-mark">M</span><span>MIE AYAM WENGI'57</span></a>
                     <div class="login-quote">
                         <span class="login-eyebrow">PENGATURAN AKUN</span>
                         <h2>Buat password baru yang aman.</h2>
-                        <p>Setelah disimpan, gunakan password baru ini untuk masuk kembali ke KOPI SENJA.</p>
+                        <p>Setelah disimpan, gunakan password baru ini untuk masuk kembali ke MIE AYAM WENGI'57.</p>
                     </div>
                     <span class="login-photo-caption">Jaga password Anda tetap aman.</span>
                 </div>
@@ -27,9 +26,9 @@
                 <x-back-button class="auth-back" :fallback="route('login')" />
                 <section class="login-card">
                     <div class="login-brand">
-                        <span class="brand-mark">K</span>
-                        <span class="brand-name">KOPI SENJA</span>
-                        <span class="brand-subtitle">Coffee Shop Management System</span>
+                        <span class="brand-mark">M</span>
+                        <span class="brand-name">MIE AYAM WENGI'57</span>
+                        <span class="brand-subtitle">Restaurant Management System</span>
                     </div>
                     <h1>Buat password baru</h1>
                     <p class="login-intro">Buat password baru minimal 8 karakter untuk akun Anda.</p>

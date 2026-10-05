@@ -4,7 +4,7 @@
 
 @section('content')
     <div class="page-heading">
-        <div><h1>Akun Pegawai</h1><p>Buat akun administrator atau kasir untuk KOPI SENJA.</p></div>
+        <div><h1>Akun Pegawai</h1><p>Buat akun administrator atau kasir untuk MIE AYAM WENGI'57.</p></div>
     </div>
 
     <div class="user-management-grid">

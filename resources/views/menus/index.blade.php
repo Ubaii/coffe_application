@@ -6,7 +6,7 @@
 <div class="page-heading">
     <div>
         <h1>Manajemen Menu</h1>
-        <p>Atur produk dan ketersediaan menu KOPI SENJA.</p>
+        <p>Atur produk dan ketersediaan menu MIE AYAM WENGI'57.</p>
     </div>
     <div class="heading-actions"><button type="button" class="btn btn-primary" data-modal-open="add-menu"><x-icon name="plus" /> Tambah Menu</button></div>
 </div>
@@ -30,7 +30,7 @@
     <div class="menu-empty-state">
         <span class="menu-empty-icon"><x-icon name="coffee" /></span>
         <h2>Belum ada menu</h2>
-        <p>Gunakan tombol di bawah untuk mulai menambahkan menu KOPI SENJA.</p>
+        <p>Gunakan tombol di bawah untuk mulai menambahkan menu MIE AYAM WENGI'57.</p>
         <button type="button" class="btn btn-primary" data-modal-open="add-menu"><x-icon name="plus" /> Tambah Menu</button>
     </div>
     @else

@@ -6,7 +6,7 @@
     <div class="page-heading">
         <div>
             <h1>Dashboard</h1>
-            <p>Ringkasan aktivitas KOPI SENJA hari ini.</p>
+            <p>Ringkasan aktivitas MIE AYAM WENGI'57 hari ini.</p>
         </div>
         <a href="{{ route('reports.index') }}" class="btn btn-outline"><x-icon name="calendar" /> Hari ini</a>
     </div>

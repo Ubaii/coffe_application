@@ -4,8 +4,17 @@
 
 @section('content')
     <div class="page-heading">
-        <div><h1>Laporan Penjualan</h1><p>Ringkasan performa penjualan KOPI SENJA.</p></div>
-        <form class="heading-actions" method="get" action="{{ route('reports.index') }}"><label class="sr-only" for="report-from">Dari</label><input class="input-control" style="width:auto" id="report-from" name="from" type="date" value="{{ $from->toDateString() }}" required><label class="sr-only" for="report-to">Sampai</label><input class="input-control" style="width:auto" id="report-to" name="to" type="date" value="{{ $to->toDateString() }}" required><button class="btn btn-outline" type="submit"><x-icon name="calendar" /> Terapkan</button></form>
+        <div><h1>Laporan Penjualan</h1><p>Ringkasan performa penjualan MIE AYAM WENGI'57.</p></div>
+        <div class="heading-actions">
+            <form class="flex items-center gap-3" method="get" action="{{ route('reports.index') }}">
+                <label class="sr-only" for="report-from">Dari</label>
+                <input class="input-control" style="width:auto" id="report-from" name="from" type="date" value="{{ $from->toDateString() }}" required>
+                <label class="sr-only" for="report-to">Sampai</label>
+                <input class="input-control" style="width:auto" id="report-to" name="to" type="date" value="{{ $to->toDateString() }}" required>
+                <button class="btn btn-outline" type="submit"><x-icon name="calendar" /> Terapkan</button>
+            </form>
+            <a href="{{ route('reports.pdf', ['from' => $from->toDateString(), 'to' => $to->toDateString()]) }}" class="btn btn-primary"><x-icon name="download" /> Download PDF</a>
+        </div>
     </div>
     <section class="stat-grid">
         <x-stat-card label="Total Transaksi" :value="$count" icon="receipt" tone="blue" note="Pada periode terpilih" />
@@ -14,7 +23,7 @@
         <x-stat-card label="Rata-rata Transaksi" :value="'Rp '.number_format($average, 0, ',', '.')" icon="wallet" tone="violet" note="Per transaksi selesai" />
     </section>
     <section class="panel" style="margin-bottom:16px">
-        <div class="panel-header"><div><h2>Grafik Penjualan</h2><p>{{ $from->translatedFormat('d M Y') }} – {{ $to->translatedFormat('d M Y') }}</p></div><span class="badge badge-neutral">Rp {{ number_format($revenue, 0, ',', '.') }}</span></div>
+        <div class="panel-header"><div><h2>Grafik Penjualan</h2><p>{{ $from->translatedFormat('d M Y') }} - {{ $to->translatedFormat('d M Y') }}</p></div><span class="badge badge-neutral">Rp {{ number_format($revenue, 0, ',', '.') }}</span></div>
         @if($revenue)
             <div class="weekly-bars">
                 @foreach($sales as $day)

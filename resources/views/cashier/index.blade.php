@@ -15,8 +15,9 @@
                 <select class="select-control" aria-label="Filter kategori" data-category-select>
                     <option value="">Semua Kategori</option>@foreach($categories as $category)<option value="{{ $category->name }}">{{ $category->name }}</option>@endforeach
                 </select>
-                <select class="select-control" aria-label="Pilih meja" data-cafe-table-picker>
-                    <option value="">Bawa pulang</option>@foreach($tables as $table)<option value="{{ $table->id }}">{{ $table->table_number }} · {{ $table->capacity }} kursi · {{ $table->location }}</option>@endforeach
+                <select class="select-control" aria-label="Tipe pesanan" data-cafe-table-picker>
+                    <option value="">Bawa pulang</option>
+                    <option value="dine-in">Makan di tempat</option>
                 </select>
             </div>
             <div class="category-chips">
@@ -34,8 +35,9 @@
         <aside class="order-panel">
             <header class="order-header">
                 <div class="order-header-row"><h2>Pesanan</h2><button class="btn btn-quiet" type="button" data-clear-order> Kosongkan</button></div>
-                <select class="order-table-select" aria-label="Meja pesanan" data-order-table-display>
-                    <option value="">Bawa pulang</option>@foreach($tables as $table)<option value="{{ $table->id }}">{{ $table->table_number }} · {{ $table->capacity }} kursi · {{ $table->location }}</option>@endforeach
+                <select class="order-table-select" aria-label="Tipe pesanan" data-order-table-display>
+                    <option value="">Bawa pulang</option>
+                    <option value="dine-in">Makan di tempat</option>
                 </select>
             </header>
             <div class="order-items" data-order-items>
@@ -57,13 +59,15 @@
             <div class="form-group">
                 <span class="field-label">Metode pembayaran</span>
                 <div class="payment-methods">
-                    @foreach(['Tunai','QRIS','Debit','Transfer'] as $method)
-                        <label class="payment-option"><input type="radio" name="payment_method" value="{{ $method }}" @checked($loop->first) required><span>{{ $method }}</span></label>
-                    @endforeach
+                    <label class="payment-option"><input type="radio" name="payment_method" value="Tunai" checked required><span>Tunai</span></label>
+                    <label class="payment-option"><input type="radio" name="payment_method" value="QRIS" required><span>QRIS</span></label>
                 </div>
             </div>
-            <div class="form-group"><label class="field-label" for="amount-paid">Jumlah bayar</label><input class="input-control" id="amount-paid" name="amount_paid" type="number" min="0" value="0" data-payment-amount required></div>
-            <div class="payment-change"><span>Uang kembali</span><strong data-payment-change>Rp 0</strong></div>
+            <div class="form-group" data-tunai-fields>
+                <label class="field-label" for="amount-paid">Uang yang dibayar</label>
+                <input class="input-control" id="amount-paid" name="amount_paid" type="number" min="0" value="0" data-payment-amount required>
+            </div>
+            <div class="payment-change" data-change-display><span>Kembalian</span><strong data-payment-change>Rp 0</strong></div>
             <div class="form-group"><label class="field-label" for="payment-note">Catatan transaksi</label><textarea class="textarea-control" id="payment-note" name="note" placeholder="Catatan tambahan (opsional)"></textarea></div>
             <div class="modal-actions"><button type="button" class="btn btn-outline" data-modal-close>Batal</button><button type="submit" class="btn btn-primary">Proses Pembayaran</button></div>
         </form>

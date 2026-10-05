@@ -112,10 +112,12 @@ const initPos = () => {
     const amountField = document.querySelector('[data-payment-amount]');
     const paymentTotal = document.querySelector('[data-payment-total]');
     const paymentChange = document.querySelector('[data-payment-change]');
+    const changeDisplay = document.querySelector('[data-change-display]');
     const paymentInputs = document.querySelector('[data-payment-items]');
     const paymentTable = document.querySelector('[data-payment-table]');
     const tablePicker = document.querySelector('[data-cafe-table-picker]');
     const tableDisplay = document.querySelector('[data-order-table-display]');
+    const tunaiFields = document.querySelector('[data-tunai-fields]');
     let activeCategory = '';
 
     const total = () => [...cart.values()].reduce((sum, item) => sum + item.price * item.quantity, 0);
@@ -125,7 +127,34 @@ const initPos = () => {
         const method = document.querySelector('[name="payment_method"]:checked')?.value;
         const paid = Number(amountField?.value || 0);
         if (paymentTotal) paymentTotal.textContent = currency(sum);
-        if (paymentChange) paymentChange.textContent = currency(method === 'Tunai' ? Math.max(0, paid - sum) : 0);
+
+        if (method === 'Tunai') {
+            const change = paid - sum;
+            if (paymentChange) {
+                if (change === 0) {
+                    paymentChange.textContent = 'Uang pas';
+                    if (changeDisplay) changeDisplay.classList.add('tone-green');
+                    if (changeDisplay) changeDisplay.classList.remove('tone-red');
+                } else if (change > 0) {
+                    paymentChange.textContent = currency(change);
+                    if (changeDisplay) changeDisplay.classList.remove('tone-green', 'tone-red');
+                } else {
+                    paymentChange.textContent = currency(Math.abs(change)) + ' kurang';
+                    if (changeDisplay) changeDisplay.classList.add('tone-red');
+                    if (changeDisplay) changeDisplay.classList.remove('tone-green');
+                }
+            }
+        } else {
+            if (paymentChange) paymentChange.textContent = '—';
+            if (changeDisplay) changeDisplay.classList.remove('tone-green', 'tone-red');
+        }
+    };
+
+    const togglePaymentFields = () => {
+        const method = document.querySelector('[name="payment_method"]:checked')?.value;
+        if (tunaiFields) tunaiFields.hidden = method !== 'Tunai';
+        if (changeDisplay) changeDisplay.hidden = method !== 'Tunai';
+        updateChange();
     };
 
     const renderCart = () => {
@@ -265,13 +294,10 @@ const initPos = () => {
         if (amountField) amountField.value = String(total());
         modal.classList.add('is-open');
         modal.setAttribute('aria-hidden', 'false');
-        updateChange();
+        togglePaymentFields();
     });
     amountField?.addEventListener('input', updateChange);
-    document.querySelectorAll('[name="payment_method"]').forEach((radio) => radio.addEventListener('change', () => {
-        if (radio.checked && radio.value !== 'Tunai' && amountField) amountField.value = String(total());
-        updateChange();
-    }));
+    document.querySelectorAll('[name="payment_method"]').forEach((radio) => radio.addEventListener('change', togglePaymentFields));
     document.querySelector('[data-payment-form]')?.addEventListener('submit', (event) => {
         const method = document.querySelector('[name="payment_method"]:checked')?.value;
         if (method === 'Tunai' && Number(amountField?.value || 0) < total()) {
@@ -286,7 +312,14 @@ const initPos = () => {
         }
 
         paymentInputs.replaceChildren();
-        if (paymentTable && tableDisplay) paymentTable.value = tableDisplay.value;
+        if (paymentTable && tableDisplay) {
+            const tableValue = tableDisplay.value;
+            if (tableValue === 'dine-in') {
+                paymentTable.value = '';
+            } else {
+                paymentTable.value = tableValue;
+            }
+        }
         cart.forEach((item) => {
             const fields = [
                 ['menu_id', item.menuId],
